@@ -66,8 +66,7 @@ class Projection extends Structure {
   invokeForReal() {
     /* eslint no-unused-vars: 0 */
     function text(string) {
-      ctx.fillText(string, 0, 0)
-      console.log('DONE')
+      display = string
     }
 
     /* eslint-disable-next-line */
@@ -337,6 +336,7 @@ function main({ villagers, structures, turn }) {
 eval(program + ';init(data)')
 
 const DEBUG = true
+let display = false
 
 const images = {}
 for (let kind of [
@@ -391,8 +391,7 @@ function mainLoop() {
           break
         }
         case 'pixelExtractionFacility': {
-          count = filterProperties(data.structures, { type: 'pixelExtractionFacilityironPit' })
-            .length
+          count = filterProperties(data.structures, { type: 'pixelExtractionFacility' }).length
           break
         }
         case 'rainbow': {
@@ -400,8 +399,7 @@ function mainLoop() {
           break
         }
         case 'astroprojectionFacility': {
-          count = filterProperties(data.structures, { type: 'astroprojectionFacilityrainbow' })
-            .length
+          count = filterProperties(data.structures, { type: 'astroprojectionFacility' }).length
           break
         }
         case 'iron': {
@@ -419,6 +417,10 @@ function mainLoop() {
       }
     }
   }
+  if (display) {
+    canvas.style.background = 'red'
+  }
+  // console.log(images)
   setTimeout(mainLoop, 0)
 }
 

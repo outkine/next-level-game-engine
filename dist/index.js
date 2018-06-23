@@ -156,7 +156,7 @@ function (_Structure2) {
     value: function invokeForReal() {
       /* eslint no-unused-vars: 0 */
       function text(string) {
-        ctx.fillText(string, 0, 0);
+        display = string;
       }
       /* eslint-disable-next-line */
 
@@ -367,6 +367,7 @@ var program = "\nfunction filterProperties(array, properties) {\n  return array.
 
 eval(program + ';init(data)');
 var DEBUG = true;
+var display = false;
 var images = {};
 var _arr = ['villager', 'mine', 'ironPit', 'pixelExtractionFacility', 'rainbow', 'astroprojectionFacility', 'iron', 'pixel'];
 
@@ -471,7 +472,7 @@ function mainLoop() {
           case 'pixelExtractionFacility':
             {
               count = filterProperties(data.structures, {
-                type: 'pixelExtractionFacilityironPit'
+                type: 'pixelExtractionFacility'
               }).length;
               break;
             }
@@ -487,7 +488,7 @@ function mainLoop() {
           case 'astroprojectionFacility':
             {
               count = filterProperties(data.structures, {
-                type: 'astroprojectionFacilityrainbow'
+                type: 'astroprojectionFacility'
               }).length;
               break;
             }
@@ -524,6 +525,11 @@ function mainLoop() {
       }
     }
   }
+
+  if (display) {
+    canvas.style.background = 'red';
+  } // console.log(images)
+
 
   setTimeout(mainLoop, 0);
 }
