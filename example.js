@@ -63,7 +63,6 @@ function deliver(mineType, villager, structures, villagers) {
 }
 
 function main({ villagers, structures, turn }) {
-  // console.log(villagers.map((villager) => villager.assignment))
   for (let villager of villagers) {
     switch (villager.assignment) {
       case 'build mine': {
@@ -103,8 +102,5 @@ function main({ villagers, structures, turn }) {
         }
       }
     }
-    // if (villager.idle) {
-    //   build('mine', villager)
-    // }
   }
 }

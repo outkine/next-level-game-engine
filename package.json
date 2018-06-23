@@ -1,6 +1,7 @@
 {
   "scripts": {
-    "dev": "babel-node index.js"
+    "dev": "babel-node index.js",
+    "build": "babel index.js -d dist"
   },
   "dependencies": {
     "eslint": "^5.0.0"
